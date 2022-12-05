@@ -1,7 +1,7 @@
 package Logica;
 import javax.swing.JOptionPane;
 
-public class showMultipleSelector {
+public class ShowMultipleSelector {
 
 private final OptionsConvertion optionOne = OptionsConvertion.Change_Digital_Currency;
 private final OptionsConvertion optionTwo = OptionsConvertion.Exchange_money;

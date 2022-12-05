@@ -4,18 +4,17 @@ import javax.swing.JOptionPane;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class showInputDialog {
-    private String mensaje;
-    private String value;
+public class ShowInputDialog {
+    private final String mensaje;
 
-    public showInputDialog(String mensaje) {
+    public ShowInputDialog(String mensaje) {
         this.mensaje = mensaje;
     }
 
     public String getValue() throws NullPointerException {
 
         try {
-            this.value = JOptionPane.showInputDialog(this.mensaje);
+            String value = JOptionPane.showInputDialog(this.mensaje);
             Pattern pat = Pattern.compile("^\\d+$");
             Matcher mat = pat.matcher(value);
             if (mat.matches()) {

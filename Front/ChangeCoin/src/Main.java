@@ -1,12 +1,12 @@
-import Logica.showInputDialog;
-import Logica.showMultipleSelector;
+import Logica.ShowInputDialog;
+import Logica.ShowMultipleSelector;
 
 public class Main {
     public static void main(String[] args) {
-        showMultipleSelector options = new showMultipleSelector();
+        ShowMultipleSelector options = new ShowMultipleSelector();
         String option = options.showMultipleSelctorValues();
         System.out.println(option);
-        showInputDialog input = new showInputDialog("Enter amount of money to convert");
+        ShowInputDialog input = new ShowInputDialog("Enter amount of money to convert");
         String value = input.getValue();
         System.out.println(value);
 
