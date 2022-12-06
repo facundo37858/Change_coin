@@ -1,5 +1,14 @@
 package Logica;
 
 public enum OptionsConvertion {
-    Exchange_money, Change_Digital_Currency
+    EXCHANGE_MONY("Exchange Mony"),
+    CHANGE_DIGITAL_CURRENCY("Change Digital Currency");
+    private final String getCurrencyName;
+    OptionsConvertion(String currencyName) {
+        this.getCurrencyName = currencyName;
+    }
+    @Override
+    public String toString() {
+        return getCurrencyName;
+    }
 }
