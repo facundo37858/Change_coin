@@ -18,10 +18,14 @@ public class ShowInputDialog {
             Pattern pat = Pattern.compile("^\\d+$");
             Matcher mat = pat.matcher(value);
             if (mat.matches()) {
-                System.out.println("SI");
+
                 return value;
             } else {
-                JOptionPane.showMessageDialog(null, "Use only integers", "alert", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,
+                        "Use only integers",
+                        "alert",
+                        JOptionPane.ERROR_MESSAGE
+                );
                 return this.getValue();
             }
 
