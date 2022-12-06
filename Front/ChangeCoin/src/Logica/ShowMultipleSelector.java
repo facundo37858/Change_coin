@@ -1,5 +1,7 @@
 package Logica;
 import javax.swing.*;
+import java.util.Objects;
+
 public class ShowMultipleSelector {
     private   Object[] options;
 
@@ -33,6 +35,18 @@ public class ShowMultipleSelector {
                 null,
                 this.options, "Select one choose"
         );
+
         return selectedValue.toString();
+    }
+
+    public double convetion(String name){
+        Currencies[] values = Currencies.values();
+        for (Currencies value : values){
+            if(Objects.equals(value.toString(), name)){
+                return  value.getConvert();
+            }
+        }
+
+        return 0;
     }
 }
