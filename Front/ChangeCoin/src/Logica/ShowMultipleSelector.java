@@ -1,25 +1,38 @@
 package Logica;
-import javax.swing.JOptionPane;
-
+import javax.swing.*;
 public class ShowMultipleSelector {
+    private   Object[] options;
 
-private final OptionsConvertion optionOne = OptionsConvertion.Change_Digital_Currency;
-private final OptionsConvertion optionTwo = OptionsConvertion.Exchange_money;
+    public ShowMultipleSelector(Currencies[] optionsValues) {
+        Object[] aux = new Object[optionsValues.length];
+        for( int i = 0 ; i < optionsValues.length;i++){
+            aux[i] = optionsValues[i];
+        }
+        this.options = aux;
+    }
 
-    public String showMultipleSelctorValues(){
-        Object[] possibleValues = {
-                optionOne.toString().replace("_"," "),
-                optionTwo.toString().replace("_"," ")
-        };
+    public ShowMultipleSelector(OptionsConvertion[] optionsValues) {
+        Object[] aux = new Object[optionsValues.length];
+        for( int i = 0 ; i < optionsValues.length;i++){
+            aux[i] = optionsValues[i];
+
+        }
+        this.options = aux;
+        //this.options = options;
+    }
+
+    public Object[] getOptions() {
+        return options;
+    }
+
+    public String showMultipleSelctorValues(String message){
         Object selectedValue = JOptionPane.showInputDialog(null,
-                "Choose a conversion option",
+                message,
                 "Menu",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
-                possibleValues, "Select one choose"
+                this.options, "Select one choose"
         );
         return selectedValue.toString();
     }
-
-
 }
