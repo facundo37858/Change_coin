@@ -1,7 +1,4 @@
-import Logica.Currencies;
-import Logica.OptionsConvertion;
-import Logica.ShowInputDialog;
-import Logica.ShowMultipleSelector;
+import Logica.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,16 +8,19 @@ public class Main {
         String optionConvertSelected = optionsConvertions.showMultipleSelctorValues("Choose a conversion option");
 
         ShowInputDialog input = new ShowInputDialog("Enter value");
-        int value = Integer.parseInt(input.getValue());
+
 
         Currencies[] optionCurrency = Currencies.values();
         ShowMultipleSelector optionsCurrency = new ShowMultipleSelector(optionCurrency);
         String optionCurrencySelected = optionsCurrency.showMultipleSelctorValues("Convert to:");
 
-       double converted = optionsCurrency.convetion(optionCurrencySelected);
-        System.out.println(converted);
-        System.out.println(value);
-        System.out.println(value*converted);
+        double value = Integer.parseInt(input.getValue());
+        double converted = optionsCurrency.convetion(optionCurrencySelected);
+
+        ShowInfo info = new ShowInfo(value,converted);
+        info.operation();
+        double result = info.getResult();
+        info.showValue(result,optionCurrencySelected);
 
     }
 }
