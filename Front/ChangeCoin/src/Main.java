@@ -20,30 +20,15 @@ public class Main {
         String optionCurrencySelected = optionsCurrency.showMultipleSelctorValues("Convert to:");
 
         if( optionCurrencySelected == null){
-            ShowDialogMessage dialoog = new ShowDialogMessage();
-            int response = dialoog.showDialog("¿Desea continuar?");
-            if(response == 0){
-                inicio();
-            }else {
-                ShowDialogMessage finishDialog = new ShowDialogMessage();
-                finishDialog.showDialogFinish();
-                System.exit(200);
-            }
+            messageDialog();
         }
         //Enter dato
         ShowInputDialog input = new ShowInputDialog("Enter value");
         String responseInputDialog = input.getValue();
         if(responseInputDialog == null){
-            ShowDialogMessage dialoog = new ShowDialogMessage();
-            int respose = dialoog.showDialog("¿Desea continuar?");
-            if(respose == 0){
-                inicio();
-            }else {
-                ShowDialogMessage finishDialog = new ShowDialogMessage();
-                finishDialog.showDialogFinish();
-                System.exit(200);
-            }
+           messageDialog();
         }
+
         double value = Integer.parseInt(responseInputDialog);
         double converted = optionsCurrency.convetion(optionCurrencySelected);
 
@@ -52,10 +37,12 @@ public class Main {
         double result = info.getResult();
         info.showValue(result,optionCurrencySelected);
 
+        messageDialog();
+    }
+    public void messageDialog(){
         ShowDialogMessage dialoog = new ShowDialogMessage();
-        int respose = dialoog.showDialog("¿Desea continuar?");
-        System.out.println(respose);
-        if(respose == 0){
+        int response = dialoog.showDialog("¿Desea continuar?");
+        if(response == 0){
             inicio();
         }else {
             ShowDialogMessage finishDialog = new ShowDialogMessage();
