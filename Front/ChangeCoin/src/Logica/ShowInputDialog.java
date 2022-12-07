@@ -18,7 +18,6 @@ public class ShowInputDialog {
             Pattern pat = Pattern.compile("^\\d+$");
             Matcher mat = pat.matcher(value);
             if (mat.matches()) {
-
                 return value;
             } else {
                 JOptionPane.showMessageDialog(null,
@@ -30,12 +29,8 @@ public class ShowInputDialog {
             }
 
         } catch (NullPointerException e) {
-
             e.printStackTrace();
-            System.out.println("enter Catch");
-            System.exit(500);
+            return null;
         }
-        System.exit(500);
-        return null;
     }
 }
