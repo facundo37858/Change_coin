@@ -35,8 +35,11 @@ public class ShowMultipleSelector {
                 null,
                 this.options, "Select one choose"
         );
+        if (selectedValue != null){
+            return selectedValue.toString();
+        }
+        return null;
 
-        return selectedValue.toString();
     }
 
     public double convetion(String name){
