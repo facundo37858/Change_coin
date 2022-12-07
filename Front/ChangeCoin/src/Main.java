@@ -9,34 +9,25 @@ public class Main {
         ShowMultipleSelector optionsConvertions = new ShowMultipleSelector(optionConvertions);
         String optionConvertSelected = optionsConvertions.showMultipleSelctorValues("Choose a conversion option");
 
-        if(optionConvertSelected == null){
-            ShowDialogMessage finish = new ShowDialogMessage();
-            finish.showDialogFinish();
-            System.exit(200);
-        }
+        if(optionConvertSelected == null)messageDialogFinish();
+
         //Seleccionar tipo de cambio
         Currencies[] optionCurrency = Currencies.values();
         ShowMultipleSelector optionsCurrency = new ShowMultipleSelector(optionCurrency);
         String optionCurrencySelected = optionsCurrency.showMultipleSelctorValues("Convert to:");
 
-        if( optionCurrencySelected == null){
-            messageDialog();
-        }
+        if( optionCurrencySelected == null) messageDialog();
+
         //Enter dato
         ShowInputDialog input = new ShowInputDialog("Enter value");
         String responseInputDialog = input.getValue();
-        if(responseInputDialog == null){
-           messageDialog();
-        }
+
+        if(responseInputDialog == null) messageDialog();
 
         double value = Integer.parseInt(responseInputDialog);
         double converted = optionsCurrency.convetion(optionCurrencySelected);
 
-        ShowInfo info = new ShowInfo(value,converted);
-        info.operation();
-        double result = info.getResult();
-        info.showValue(result,optionCurrencySelected);
-
+        messageInfo(value,converted,optionCurrencySelected);
         messageDialog();
     }
     public void messageDialog(){
@@ -49,6 +40,17 @@ public class Main {
             finishDialog.showDialogFinish();
             System.exit(200);
         }
+    }
+    public void messageDialogFinish(){
+        ShowDialogMessage finish = new ShowDialogMessage();
+        finish.showDialogFinish();
+        System.exit(200);
+    }
+    public void messageInfo(double value, double converted, String option){
+        ShowInfo info = new ShowInfo(value,converted);
+        info.operation();
+        double result = info.getResult();
+        info.showValue(result,option);
     }
 
     public static void main(String[] args) {
